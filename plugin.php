@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Boilerplate
+ * Plugin Name:       Abr
  * Description:       Example block written with ESNext standard and JSX support – build step required.
  * Requires at least: 6.0
  * Requires PHP:      7.4
@@ -9,20 +9,20 @@
  * Author URI:        https://makegutenblock.com
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       boilerplate
+ * Text Domain:       abr
  * Domain Path:       /languages
  */
 
  /**
   * @package Zero Configuration with @wordpress/create-block
-  *  [boilerplate] && [BOILERPLATE] ===> Prefix
+  *  [abr] && [ABR] ===> Prefix
   */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-if( ! class_exists( 'Boilerplate_Blocks' ) ) {
+if( ! class_exists( 'Abr_Blocks' ) ) {
 
-	final class Boilerplate_Blocks {
+	final class Abr_Blocks {
 
 		protected static $instance = null;
 
@@ -40,10 +40,10 @@ if( ! class_exists( 'Boilerplate_Blocks' ) ) {
 		 * @return void
 		 */
 		public function define_constants() {
-			define( 'BOILERPLATE_VERSION', '1.0.0' );
-			define( 'BOILERPLATE_DIR', __DIR__ );
-			define( 'BOILERPLATE_URL', plugin_dir_url( __FILE__ ) );
-			define( 'BOILERPLATE_PATH', plugin_dir_path( __FILE__ ) );
+			define( 'ABR_VERSION', '1.0.0' );
+			define( 'ABR_DIR', __DIR__ );
+			define( 'ABR_URL', plugin_dir_url( __FILE__ ) );
+			define( 'ABR_PATH', plugin_dir_path( __FILE__ ) );
 		}
 
 		/**
@@ -56,7 +56,7 @@ if( ! class_exists( 'Boilerplate_Blocks' ) ) {
 
 		/**
 		 * Initialize the plugin
-		 * @return \Boilerplate_Blocks
+		 * @return \Abr_Blocks
 		 */
 		public static function init() {
 			if( is_null( self::$instance ) ) {
@@ -69,11 +69,11 @@ if( ! class_exists( 'Boilerplate_Blocks' ) ) {
 
 /**
  * Initialize the plugin
- * @return \Boilerplate_Blocks
+ * @return \Abr_Blocks
  */
-function boilerplate_blocks_init() {
-	return Boilerplate_Blocks::init();
+function abr_blocks_init() {
+	return Abr_Blocks::init();
 }
 
 // kick-off the plugin
-boilerplate_blocks_init();
+abr_blocks_init();

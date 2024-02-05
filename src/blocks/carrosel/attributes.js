@@ -5,14 +5,18 @@ const attributes = {
 	blockStyle: {
 		type: 'object',
 	},
-	content: {
-		type: 'string',
-		default: 'Hello World!',
+	gallery: {
+		type: 'array'
 	},
-	textColor: {
+	backgroundColor: {
 		type: 'string',
 		default: '#000000',
 	},
+	maxHeight:{
+		type: 'string',
+		default: '200px'
+	},
+
 };
 
 export default attributes;

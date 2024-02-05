@@ -1,14 +1,14 @@
 <?php
 /**
  * Regiser Blocks Category
- * @boilerplate
+ * @abr
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-if( ! class_exists( 'Boilerplate_Blocks_Category' ) ) {
+if( ! class_exists( 'Abr_Blocks_Category' ) ) {
     
-    class Boilerplate_Blocks_Category {
+    class Abr_Blocks_Category {
 
         /**
          * Constructor
@@ -30,8 +30,8 @@ if( ! class_exists( 'Boilerplate_Blocks_Category' ) ) {
             return array_merge(
                 array(
                     array(
-                        'slug'  => 'boilerplate',
-                        'title' => __( 'Boilerplate', 'boilerplate' ),
+                        'slug'  => 'abr',
+                        'title' => __( 'Abr', 'abr' ),
                     ),
                 ),
                 $categories,
@@ -41,4 +41,4 @@ if( ! class_exists( 'Boilerplate_Blocks_Category' ) ) {
     }
 }
 
-new Boilerplate_Blocks_Category(); // Initialize the class instance 
+new Abr_Blocks_Category(); // Initialize the class instance 

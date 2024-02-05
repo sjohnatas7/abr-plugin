@@ -1,16 +1,16 @@
 {
   "apiVersion": 2,
-  "name": "boilerplate/test",
+  "name": "abr/carrosel-logo",
   "version": "0.1.0",
-  "title": "Test Block",
-  "category": "boilerplate",
+  "title": "Carrosel Logo Block",
+  "category": "common",
   "icon": "smiley",
   "description": "Example block written with ESNext standard and JSX support build step required.",
   "supports": {
     "html": false,
     "anchor": true
   },
-  "textdomain": "boilerplate",
+  "textdomain": "abr",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css"

@@ -1,14 +1,14 @@
 <?php 
 /**
  * Register Blocks 
- * @boilerplate
+ * @abr
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-if( ! class_exists( 'Boilerplate_Register_Blocks' ) ) {
+if( ! class_exists( 'Abr_Register_Blocks' ) ) {
 
-    class Boilerplate_Register_Blocks {
+    class Abr_Register_Blocks {
 
         /**
          * Constructor 
@@ -23,7 +23,7 @@ if( ! class_exists( 'Boilerplate_Register_Blocks' ) ) {
         * @return void
         */
         public function register_blocks() {
-            $blocksFolder = BOILERPLATE_DIR . '/build/blocks';
+            $blocksFolder = ABR_DIR . '/build/blocks';
 
             if ( is_dir( $blocksFolder ) ) {
                 $contents = scandir( $blocksFolder );
@@ -35,7 +35,7 @@ if( ! class_exists( 'Boilerplate_Register_Blocks' ) ) {
             
                 if( is_array( $blocks ) && ! empty( $blocks ) ) {
                     foreach ( $blocks as $block ) {
-                        register_block_type( BOILERPLATE_DIR . '/build/blocks/' . $block  );
+                        register_block_type( ABR_DIR . '/build/blocks/' . $block  );
                     }
                 }
             }
@@ -43,4 +43,4 @@ if( ! class_exists( 'Boilerplate_Register_Blocks' ) ) {
     }
 }
 
-new Boilerplate_Register_Blocks(); // Initialize the class instance
+new Abr_Register_Blocks(); // Initialize the class instance

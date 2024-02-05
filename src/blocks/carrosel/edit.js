@@ -1,8 +1,9 @@
 /**
  * WordPress dependencies
  */
-import { useBlockProps, RichText } from '@wordpress/block-editor';
-const { Fragment, useEffect } = wp.element;
+import { useBlockProps, MediaPlaceholder } from '@wordpress/block-editor';
+import { Fragment, useEffect } from '@wordpress/element';
+
 
 // editor style
 import './editor.scss';
@@ -18,13 +19,13 @@ import { softMinifyCssStrings } from '../../helper/softminify';
  */
 
 export default function Edit({ attributes, setAttributes, clientId }) {
-	const { uniqueId, blockStyle, content, textColor } = attributes;
+	const { uniqueId, blockStyle, gallery, backgroundColor } = attributes;
 
 	// Unique ID
 	useEffect(() => {
 		if (!uniqueId) {
 			setAttributes({
-				uniqueId: 'boilerplate-' + clientId.slice(0, 8),
+				uniqueId: 'abr-' + clientId.slice(0, 8),
 			});
 		}
 	}, []);
@@ -38,8 +39,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	 * Block Styles
 	 */
 	const deskStyles = `
-		.${uniqueId} span{
-			color: ${textColor};
+		.${uniqueId}{
+			background: ${backgroundColor};
 		}
 	`;
 	const tabStyles = ``;
@@ -67,17 +68,29 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 
 	return (
 		<Fragment>
-			<style>{`${softMinifyCssStrings(blockStyleCss)}`}</style>
-			<Inspector attributes={attributes} setAttributes={setAttributes} />
-			<div {...blockProps}>
-				<RichText
-					tagName="span"
-					value={content}
-					onChange={(newContent) =>
-						setAttributes({ content: newContent })
-					}
-				/>
-			</div>
+		  <style>{`${softMinifyCssStrings(blockStyleCss)}`}</style>
+		  <Inspector attributes={attributes} setAttributes={setAttributes} />
+		  <div {...blockProps}>
+			{gallery ? (
+			  <div className='gallery_container'>
+				  <div className='gallery_wrapper'>
+					{gallery.map((image, index) => (
+					<div className='single_gallery_image' key={index}>
+						<img src={image.url} alt={image.alt} />
+					</div>
+					))}
+					</div>
+			  </div>
+			) : (
+			  <MediaPlaceholder
+				onSelect={(v) => setAttributes({ gallery: v })}
+				allowedTypes={['image']}
+				multiple={true}
+				labels={{ title: 'Add Images' }}
+			  ></MediaPlaceholder>
+			)}
+		  </div>
 		</Fragment>
-	);
+	  );
+	  
 }

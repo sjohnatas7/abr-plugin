@@ -1,14 +1,14 @@
 <?php
 /**
  * Register Dynamic Styles for Blocks
- * @package Boilerplate
+ * @package Abr
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-if( ! class_exists( 'Boilerplate_Dynamic_Style' ) ) {
+if( ! class_exists( 'Abr_Dynamic_Style' ) ) {
 
-    class Boilerplate_Dynamic_Style {
+    class Abr_Dynamic_Style {
         
         /**
          * Constructor
@@ -23,10 +23,10 @@ if( ! class_exists( 'Boilerplate_Dynamic_Style' ) ) {
          * @return string
          */
         function dynamic_style( $block_content, $block ) {
-            if ( isset( $block[ 'blockName' ] ) && str_contains( $block[ 'blockName' ], 'boilerplate/' ) ) {
+            if ( isset( $block[ 'blockName' ] ) && str_contains( $block[ 'blockName' ], 'abr/' ) ) {
                 if ( isset( $block[ 'attrs' ][ 'blockStyle' ] ) ) {
                     $style = $block[ 'attrs' ][ 'blockStyle' ];
-                    $handle = isset( $block[ 'attrs' ][ 'uniqueId' ] ) ? $block[ 'attrs' ][ 'uniqueId' ] : 'boilerplate-blocks';
+                    $handle = isset( $block[ 'attrs' ][ 'uniqueId' ] ) ? $block[ 'attrs' ][ 'uniqueId' ] : 'abr-blocks';
     
                     // convert style array to string
                     if ( is_array( $style ) ) {
@@ -47,4 +47,4 @@ if( ! class_exists( 'Boilerplate_Dynamic_Style' ) ) {
     }
 }
 
-new Boilerplate_Dynamic_Style(); // Initialize the class instance
+new Abr_Dynamic_Style(); // Initialize the class instance
