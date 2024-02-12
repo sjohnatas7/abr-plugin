@@ -51,7 +51,7 @@ if( ! class_exists( 'Abr_Blocks' ) ) {
 		 * @return void
 		 */
 		public function includes() {
-			require_once __DIR__ . '/inc/loader.php';
+			require_once __DIR__ . '/includes/loader.php';
 		}
 
 		/**

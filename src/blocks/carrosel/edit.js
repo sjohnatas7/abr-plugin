@@ -19,7 +19,7 @@ import { softMinifyCssStrings } from '../../helper/softminify';
  */
 
 export default function Edit({ attributes, setAttributes, clientId }) {
-	const { uniqueId, blockStyle, gallery, backgroundColor } = attributes;
+	const { uniqueId, blockStyle, gallery, backgroundColor, padding, maxHeight } = attributes;
 
 	// Unique ID
 	useEffect(() => {
@@ -39,8 +39,14 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	 * Block Styles
 	 */
 	const deskStyles = `
-		.${uniqueId}{
+		.${uniqueId} {
 			background: ${backgroundColor};
+		}
+		.${uniqueId} .gallery_container {
+			height: ${maxHeight}px;
+		}
+		.${uniqueId} .gallery_wrapper {
+			padding: ${padding}px;
 		}
 	`;
 	const tabStyles = ``;

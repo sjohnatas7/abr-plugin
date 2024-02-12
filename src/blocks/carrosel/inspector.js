@@ -2,30 +2,50 @@
  * WordPress dependencies
  */
 const { __ } = require('@wordpress/i18n');
-const { InspectorControls, MediaUploadCheck, MediaUpload, Toolbar } = require('@wordpress/block-editor');
+const { InspectorControls, MediaUploadCheck, MediaUpload, Toolbar, BlockControls } = require('@wordpress/block-editor');
 const { PanelBody, BaseControl, ColorPalette, ToolbarGroup, ToolbarButton } = require('@wordpress/components');
 
 const Inspector = ({ attributes, setAttributes }) => {
-	const { gallery, backgroundColor } = attributes;
+	const { gallery, backgroundColor,maxHeight, padding } = attributes;
 
 	return (
-		<InspectorControls>
+		<>
+		<BlockControls>
 			<ToolbarGroup>
 				<ToolbarButton onClick={()=> setAttributes({gallery: []})} icon="trash"></ToolbarButton>
-				{/* <MediaUploadCheck>
+			 	<MediaUploadCheck>
 					<MediaUpload
 						multiple={true}
 						gallery={true}
 						onSelect={(media)=>setAttributes({gallery: media})}
 						allowedTypes={['image']}
-						value={gallery.map((image)=> image.id)}
+						value={gallery?.map((image)=> image.id) || ''}
 						render={({open})=>(
 							<ToolbarButton onClick={open} icon="edit"/>
 						)}
 						>
 					</MediaUpload>
-				</MediaUploadCheck> */}
+				</MediaUploadCheck> 
 			</ToolbarGroup>
+	</BlockControls>
+		<InspectorControls>
+				<PanelBody title={__('Block Settings', 'boilerplate')}>
+			<BaseControl label={__('Height', 'boilerplate')}>
+				<input
+					type="number"
+					value={maxHeight}
+					onChange={(e) => setAttributes({ maxHeight: e.target.value })}
+				/>
+			</BaseControl>
+			<BaseControl label={__('Padding', 'boilerplate')}>
+				<input 	
+					type="number"
+					value={padding}
+					onChange={(e) => setAttributes({ padding: e.target.value })}
+				/>
+			</BaseControl>
+		</PanelBody>
+			
 			<PanelBody title={__('Carrosel Block Settings', 'boilerplate')}>
 				<BaseControl label={__('Background Color', 'boilerplate')} id="color">
 					<ColorPalette
@@ -40,6 +60,7 @@ const Inspector = ({ attributes, setAttributes }) => {
 				</BaseControl>
 			</PanelBody>
 		</InspectorControls>
+		</>
 	);
 };
 

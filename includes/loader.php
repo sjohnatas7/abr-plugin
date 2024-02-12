@@ -1,4 +1,4 @@
-<?php 
+d<?php 
 /**
  * Plugin Main Loader File
  * 
@@ -24,9 +24,9 @@
          * @return void
          */
         public function includes() {
-            require_once ABR_PATH . 'inc/classes/blocks-category.php';
-            require_once ABR_PATH . 'inc/classes/blocks-register.php';
-            require_once ABR_PATH . 'inc/classes/blocks-style.php';
+            require_once ABR_PATH . 'includes/classes/blocks-category.php';
+            require_once ABR_PATH . 'includes/classes/blocks-register.php';
+            require_once ABR_PATH . 'includes/classes/blocks-style.php';
         }
 
     }

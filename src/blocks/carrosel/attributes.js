@@ -13,8 +13,16 @@ const attributes = {
 		default: '#000000',
 	},
 	maxHeight:{
+		type: 'number',
+		default: 200
+	},
+	padding:{
+		type: "number",
+		default: 20
+	},
+	typeOfWidth:{
 		type: 'string',
-		default: '200px'
+		default: 'wide'
 	},
 
 };
