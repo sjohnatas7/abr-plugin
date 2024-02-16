@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies
  */
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Save function
@@ -17,13 +17,14 @@ export default function save({ attributes }) {
 
 	return (
 		<div {...blockProps}>
-			<div className='gallery_container'>
-				<div className='gallery_wrapper'>
-					{gallery && gallery.map((image, index) => (
-					<div className='single_gallery_image' key={index}>
-						<img src={image.url} alt={image.alt} />
-					</div>
-					))}
+			<div className="gallery_container">
+				<div className="gallery_wrapper">
+					{gallery &&
+						gallery.map((image, index) => (
+							<div className="single_gallery_image" key={index}>
+								<img src={image.url} alt={image.alt} />
+							</div>
+						))}
 				</div>
 			</div>
 		</div>
